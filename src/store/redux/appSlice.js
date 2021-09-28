@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const appSlice = createSlice({
   name: 'app',
   initialState: {
-    isAuthorized: false,
+    isAuthorized: true,
   },
   reducers: {
     setIsAuthorized(state, { payload }) {

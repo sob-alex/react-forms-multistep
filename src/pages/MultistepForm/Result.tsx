@@ -2,6 +2,7 @@ import React, { useState, FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { useData } from '../../store/context/FormContext';
 import { MainContainer } from './components/MainContainer';
@@ -23,14 +24,19 @@ import {
 } from '@material-ui/core';
 import { setIsAuthorized } from '../../store/redux/appSlice';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>({
   root: {
     marginBottom: '30px',
   },
   table: {
     marginBottom: '30px',
   },
-});
+  link:{
+    color: theme.palette.secondary.main,
+    textDecoration: 'none',
+    width: '100%'
+  }
+}));
 
 export const Result = () => {
   const history = useHistory();
@@ -120,7 +126,9 @@ export const Result = () => {
         <PrimaryButton onClick={onSubmit}>
           Submit
         </PrimaryButton>
-        <Link to='/multistep'>Start over</Link>
+        <Button fullWidth>
+          <Link  className={styles.link} to='/multistep'>Start over</Link>
+        </Button>
       </MainContainer>
     </>
   );

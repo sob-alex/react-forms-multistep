@@ -190,7 +190,7 @@ const FormikValidation = () => {
                   fullWidth
                   type='submit'
                 >
-                  Primary
+                  Register
                 </Button>
               </Box>
             </Box>

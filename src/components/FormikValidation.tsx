@@ -91,11 +91,9 @@ const FormikValidation = () => {
                   <TextField
                     //   className={classes.textField}
                     id='outlined-basic'
-                    name='firstName'
                     label='First name'
                     variant='outlined'
                     margin='dense'
-                    fullWidth
                     fullWidth
                     {...formik.getFieldProps('firstName')}
                     error={
@@ -112,7 +110,6 @@ const FormikValidation = () => {
                   <TextField
                     //   className={classes.textField}
                     id='outlined-basic'
-                    name='lastName'
                     label='Last name'
                     variant='outlined'
                     margin='dense'
@@ -149,7 +146,6 @@ const FormikValidation = () => {
               <TextField
                 //   className={classes.textField}
                 id='outlined-basic'
-                name='password'
                 label='Password'
                 variant='outlined'
                 margin='dense'
@@ -175,7 +171,6 @@ const FormikValidation = () => {
                 <FormControlLabel
                   control={
                     <Checkbox
-                      name='accepted'
                       {...formik.getFieldProps('accepted')}
                     />
                   }

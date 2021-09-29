@@ -7,18 +7,20 @@ import { FileInput } from './components/FileInput';
 import { PrimaryButton } from './components/PrimaryButton';
 import Typography from '@material-ui/core/Typography';
 import { Form } from './components/Form';
+import { IFormData } from '../../types/types';
 
 export const Step3 = () => {
   const history = useHistory();
   const { data, setValues } = useData();
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit } = useForm<IFormData>({
     defaultValues: {
       files: data.files,
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: IFormData) => {
     history.push('/multistep/result');
+    // @ts-ignore
     setValues(data);
   };
 

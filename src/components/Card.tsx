@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -22,11 +22,17 @@ const useStyles = makeStyles({
   },
 });
 
+interface CardProps {
+  imageUrl: string;
+  title: string;
+  text: string;
+}
+
 export default function MediaCard({
   imageUrl,
   title,
   text,
-}) {
+}: CardProps) {
   const classes = useStyles();
 
   return (

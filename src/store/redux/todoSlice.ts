@@ -1,10 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ITodo } from '../../types/types';
+
+interface TodosState {
+  todos: Array<ITodo>;
+}
+
+const initialState: TodosState = {
+  todos: [],
+}
 
 const todoSlice = createSlice({
   name: 'todos',
-  initialState: {
-    todos: [],
-  },
+  initialState,
   reducers: {
     addTodo(state, { payload }) {
       state.todos.push(payload);

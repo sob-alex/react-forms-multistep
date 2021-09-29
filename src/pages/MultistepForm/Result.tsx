@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -87,10 +87,10 @@ export const Result = () => {
               {entries.map((entry) => (
                 <TableRow key={entry[0]}>
                   <TableCell component='th' scope='row'>
-                    {entry[0]}
+                    <div>{entry[0]}</div>
                   </TableCell>
                   <TableCell align='right'>
-                    {entry[1] || 'none'}
+                    <div>{entry[1]?.toString()}</div>
                   </TableCell>
                 </TableRow>
               ))}

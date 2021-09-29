@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { setIsAuthorized } from '../store/redux/appSlice';
 import { Box, Divider } from '@material-ui/core';
+import { useAppSelector } from '../hooks';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -30,7 +31,7 @@ export default function Header() {
   const history = useHistory();
   const dispatch = useDispatch();
   const classes = useStyles();
-  const isAuthorized = useSelector(
+  const isAuthorized = useAppSelector(
     (state) => state.app.isAuthorized
   );
   const logout = () => {
@@ -38,7 +39,7 @@ export default function Header() {
     history.push('/');
   };
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position='static'>
         <Toolbar>
           <Link className={classes.link} to='/'>

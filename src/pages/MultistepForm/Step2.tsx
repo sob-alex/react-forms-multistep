@@ -15,6 +15,7 @@ import { Form } from './components/Form';
 import { Input } from './components/Input';
 import * as yup from 'yup';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
+import { IFormData } from '../../types/types';
 
 const schema = yup.object().shape({
   email: yup
@@ -23,7 +24,7 @@ const schema = yup.object().shape({
     .required('Email is a required field'),
 });
 
-const normalizePhoneNumber = (value) => {
+const normalizePhoneNumber = (value: string) => {
   const phoneNumber = parsePhoneNumberFromString(value);
   if (!phoneNumber) {
     return value;
@@ -31,6 +32,12 @@ const normalizePhoneNumber = (value) => {
 
   return phoneNumber.formatInternational();
 };
+
+interface Inputs {
+  email: string;
+  phoneNumber: string;
+  hasPhone: boolean;
+}
 
 export const Step2 = () => {
   let { url } = useRouteMatch();
@@ -42,19 +49,21 @@ export const Step2 = () => {
     watch,
     formState: { errors },
     control,
-  } = useForm({
+  } = useForm<Inputs>({
     mode: 'onBlur',
     defaultValues: {
       email: data.email,
       hasPhone: data.hasPhone,
       phoneNumber: data.phoneNumber,
     },
+    // @ts-ignore
     resolver: yupResolver(schema),
   });
   const hasPhone = watch('hasPhone');
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: IFormData) => {
     history.push(`/multistep/step3`);
+    // @ts-ignore
     setValues(data);
   };
 
@@ -81,7 +90,7 @@ export const Step2 = () => {
             <FormControlLabel
               control={
                 <Checkbox
-                  defaultValue={data.hasPhone}
+                  // defaultValue={data.hasPhone}
                   defaultChecked={data.hasPhone}
                   color='primary'
                   {...field}
@@ -99,7 +108,9 @@ export const Step2 = () => {
             id='phoneNumber'
             type='tel'
             label='Phone Number'
-            onChange={(event) => {
+            onChange={(
+              event: React.ChangeEvent<HTMLInputElement>
+            ) => {
               event.target.value = normalizePhoneNumber(
                 event.target.value
               );

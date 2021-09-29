@@ -1,14 +1,21 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { FC } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
+    width: '100%',
     marginTop: theme.spacing(1),
   },
 }));
 
-export const Form = ({children, ...props}) => {
+interface FormProps {
+  onSubmit: () => void;
+}
+
+export const Form: FC<FormProps> = ({
+  children,
+  ...props
+}) => {
   const styles = useStyles();
 
   return (

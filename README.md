@@ -7,6 +7,7 @@ This is a fairly simple application that I decided to write to brush up on my kn
 * Context API
 * React Router DOM
 * Typescript
+* Material UI
 * Formik
 * React Hook Form
 * React Drop Zone
@@ -14,3 +15,9 @@ This is a fairly simple application that I decided to write to brush up on my kn
 ## Link of workin app
 
 ## Screenshots
+
+<img src="screenshots/i1.PNG" width="100%" >
+<img src="screenshots/i2.PNG" width="100%" >
+<img src="screenshots/i3.PNG" width="100%" >
+<img src="screenshots/i4.PNG" width="100%" >
+<img src="screenshots/i5.PNG" width="100%" >

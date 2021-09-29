@@ -2,7 +2,7 @@
   "name": "simple-validation",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sob-alex.github.io/react-forms-multistep",
+  "homepage": "https://sob-alex.github.io/react-forms-multistep-typescript",
   "dependencies": {
     "@hookform/resolvers": "^2.8.1",
     "@material-ui/core": "^4.12.3",
@@ -50,7 +50,7 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all" 
     ],
     "development": [
       "last 1 chrome version",
